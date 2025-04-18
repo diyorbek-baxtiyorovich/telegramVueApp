@@ -1,7 +1,7 @@
 <template>
   <div class="bg-box mt-4">
     <div class="d-flex justify-space-between align-center mb-2">
-      <h2 class="text-h6 font-weight-bold">Новые поступления</h2>
+      <h2 class="text-h6 font-weight-bold">Yangi kelganlar</h2>
       <v-btn
         variant="text"
         @click="$router.push('/category')"
@@ -17,14 +17,14 @@
           <v-img :src="product.image" height="180" cover class="rounded-img" />
           <v-card-text class="py-2">
             <div class="d-flex align-center mb-1">
-              <v-chip size="x-small" color="red" class="text-white me-2">🔥 Распродажа</v-chip>
+              <v-chip size="x-small" color="red" class="text-white me-2">🔥 Sotish</v-chip>
               <span class="text-red text-subtitle-2 font-weight-bold"
                 >{{ product.discountPercent }}%</span
               >
             </div>
-            <div class="text-subtitle-2 font-weight-bold text-red">{{ product.price }} сум</div>
+            <div class="text-subtitle-2 font-weight-bold text-red">{{ product.price }} so'm</div>
             <div class="text-caption text-decoration-line-through text-grey">
-              {{ product.oldPrice }} сум
+              {{ product.oldPrice }} so'm
             </div>
             <div class="text-caption">{{ product.title }}</div>
           </v-card-text>

@@ -1,7 +1,7 @@
 <template>
   <v-card class="category-card" flat>
     <v-img :src="category.image" height="100" cover class="rounded-img" />
-    <v-card-text class="text-caption font-weight-medium">
+    <v-card-text class="text-caption font-weight-medium font-weight-bold text-2xl">
       {{ category.title }}
     </v-card-text>
   </v-card>

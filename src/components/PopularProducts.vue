@@ -1,7 +1,7 @@
 <template>
   <div class="bg-box mt-4">
     <div class="d-flex justify-space-between align-center mb-2">
-      <h2 class="text-h6 font-weight-bold">Популярные товары</h2>
+      <h2 class="text-h6 font-weight-bold">Mashhur tovar</h2>
       <v-btn
         variant="text"
         @click="$router.push('/popular')"
