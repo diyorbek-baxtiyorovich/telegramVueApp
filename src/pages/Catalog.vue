@@ -21,35 +21,52 @@
       <CategoryList />
     </div>
     <div class="bg-box mt-2 px-3">
-      <!-- Saralash va Narx tugmalari -->
-      <div class="d-flex justify-space-between mb-2">
-        <v-btn @click="dialog = true" variant="outlined" rounded> Saralash </v-btn>
-        <v-btn variant="outlined" rounded> Narx </v-btn>
+      <div class="titel_all">
+        <h2 class="catalog-title">Barcha mahsulotlar</h2>
+      </div>
+      <div class="d-flex justify-start mb-2">
+        <v-btn @click="dialog = true" variant="outlined" rounded class="sort-btn mr-2">
+          Saralash
+        </v-btn>
+        <v-btn variant="outlined" rounded class="sort-btn">Narx</v-btn>
       </div>
 
-      <!-- Modal oynasi -->
+      <!-- VBottomSheet: Saralash oynasi -->
       <v-bottom-sheet v-model="dialog" inset>
-        <v-card class="pa-2">
-          <v-card-title class="text-h6 font-weight-bold">Avval ko'rsatiladi</v-card-title>
-          <v-divider class="my-2" />
+        <v-card class="px-4 pt-4 pb-6 rounded-xl">
+          <!-- Sarlavha va Yopish -->
+          <div class="d-flex justify-space-between align-center mb-2">
+            <span class="text-subtitle-1 font-weight-bold">Avval ko'rsatiladi</span>
+            <v-btn icon variant="text" @click="dialog = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </div>
 
-          <v-list>
-            <v-list-item
+          <v-divider class="mb-3" />
+
+          <!-- Radio Guruh -->
+          <v-radio-group v-model="selectedSort" class="mb-4">
+            <v-radio
               v-for="option in sortOptions"
               :key="option.value"
-              @click="selectSort(option.value)"
-              class="cursor-pointer"
-            >
-              <v-list-item-action>
-                <v-radio :model-value="selectedSort" :value="option.value" />
-              </v-list-item-action>
-              <v-list-item-title>{{ option.label }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
+              :label="option.label"
+              :value="option.value"
+              color="primary"
+              class="sort-radio"
+            />
+          </v-radio-group>
 
-          <v-card-actions>
-            <v-btn block @click="dialog = false" color="primary">Qo'llash</v-btn>
-          </v-card-actions>
+          <!-- Qo'llash tugmasi -->
+          <v-btn
+            block
+            color="#182c88"
+            class="text-white font-weight-medium"
+            rounded
+            size="large"
+            @click="applySort"
+          >
+            Qo'llash
+          </v-btn>
         </v-card>
       </v-bottom-sheet>
 
@@ -163,17 +180,30 @@ function openSearch() {
   }
 }
 
-const selectSort = value => {
-  selectedSort.value = value
+function applySort() {
+  console.log('Tanlangan saralash turi:', selectedSort.value)
+  dialog.value = false
 }
 </script>
 
 <style scoped>
-.cursor-pointer {
-  cursor: pointer;
+.titel_all h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #1e1e1e;
 }
 .bac_bt {
   background-color: #f6f6f6;
+}
+.sort-radio .v-label {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+.sort-btn {
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: none;
+  border-color: #d1d1d1;
 }
 .catalog-section {
   background-color: #324387;
@@ -183,6 +213,7 @@ const selectSort = value => {
 .bg-box {
   background-color: #fff;
   border-radius: 12px;
+  padding-top: 16px;
 }
 
 .catalog-title {
