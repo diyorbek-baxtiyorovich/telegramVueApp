@@ -8,7 +8,7 @@
         :append-icon="icons.mdiChevronRight"
         class="text-primary"
       >
-        Все
+        Hammasi
       </v-btn>
     </div>
     <v-slide-group show-arrows>

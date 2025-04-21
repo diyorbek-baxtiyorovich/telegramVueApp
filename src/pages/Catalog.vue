@@ -165,6 +165,7 @@ const products = [
 const dialog = ref(false)
 const selectedSort = ref('popular')
 const searchOverlay = ref(null)
+searchOverlay.value = undefined
 
 const sortOptions = [
   { label: 'Ommabop', value: 'popular' },

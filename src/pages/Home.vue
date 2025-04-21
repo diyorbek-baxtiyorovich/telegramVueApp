@@ -5,14 +5,14 @@
     <div class="pt-4">
       <div class="bg-box">
         <div class="d-flex justify-space-between align-center mb-2">
-          <h2 class="text-h6 font-weight-bold">Каталог</h2>
+          <h2 class="text-h6 font-weight-bold">Katalog</h2>
           <v-btn
             variant="text"
             @click="$router.push('/catalog')"
             :append-icon="icons.mdiChevronRight"
             class="text-primary"
           >
-            Все категории
+            Barcha toifalar
           </v-btn>
         </div>
         <CategoryList />
@@ -38,6 +38,8 @@ const icons = reactive({
   mdiMapMarker,
   mdiChevronRight
 })
+
+// const loading = ref(false)
 </script>
 <style>
 .bg-color {
