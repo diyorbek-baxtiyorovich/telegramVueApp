@@ -17,14 +17,14 @@
           <v-img :src="product.image" height="140" cover class="rounded-img" />
           <v-card-text class="py-2">
             <div v-if="product.discount" class="mb-1">
-              <v-chip size="x-small" color="red" class="text-white">Распродажа</v-chip>
+              <v-chip size="x-small" color="red" class="text-white">Sotish</v-chip>
             </div>
-            <div class="text-subtitle-2 font-weight-bold">{{ product.price }} сум</div>
+            <div class="text-subtitle-2 font-weight-bold">{{ product.price }} so'm</div>
             <div
               v-if="product.oldPrice"
               class="text-caption text-grey text-decoration-line-through"
             >
-              {{ product.oldPrice }} сум
+              {{ product.oldPrice }} so'm
             </div>
             <div class="text-caption">{{ product.title }}</div>
           </v-card-text>

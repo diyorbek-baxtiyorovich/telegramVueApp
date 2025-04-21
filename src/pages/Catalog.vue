@@ -194,7 +194,7 @@ function applySort() {
 .bac_bt {
   background-color: #f6f6f6;
 }
-.sort-radio .v-label {
+.sort-radio {
   font-size: 15px;
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
