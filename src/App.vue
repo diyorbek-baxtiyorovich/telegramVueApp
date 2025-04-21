@@ -19,6 +19,7 @@ import DefaultLayout from './layouts/DefaultLayout.vue'
   height: 100%;
 }
 .app_box {
+  min-width: 320px;
   max-width: 400px;
 }
 </style>
