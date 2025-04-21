@@ -1,12 +1,7 @@
 <template>
   <div class="pa-4 pb-16">
     <div v-if="cartItems.length === 0" class="text-center mt-10">
-      <v-img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThRRzbi7woVWthmVckmGUBvO6Nt2IpI9B8TNlxfpCBCIpxZdV6BR2cajIFoHEL8PPsikg&usqp=CAU"
-        max-width="200"
-        class="mx-auto"
-        contain
-      />
+      <v-img src="../assets/empty.png" max-width="200" class="mx-auto" contain />
       <h3 class="text-h6 font-weight-bold mt-4">Savatda hozircha mahsulot yo'q</h3>
       <p class="text-grey mt-2">
         Bosh sahifadagi mahsulotlardan boshlang yoki kerakli mahsulotni qidiruv orqali toping
@@ -22,7 +17,7 @@
           size="x-medium"
           color="error"
           class="position-absolute top-0 right-0 mt-4 mr-4"
-          @click="openConfirm(cartItems)"
+          @click="openConfirm('all')"
         >
           <v-icon :icon="icons.mdiTrashCan" />
         </v-btn>
@@ -76,7 +71,13 @@
     <!-- Delete confirmation dialog -->
     <v-dialog v-model="confirmDialog" width="400">
       <v-card>
-        <v-card-title class="text-h6">Mahsulotni o‘chirishni xohlaysizmi?</v-card-title>
+        <v-card-title class="text-h6">
+          {{
+            itemToDelete === 'all'
+              ? 'Savatdagi barcha mahsulotlarni o‘chirishni xohlaysizmi?'
+              : 'Mahsulotni o‘chirishni xohlaysizmi?'
+          }}
+        </v-card-title>
         <v-card-actions class="justify-end">
           <v-btn variant="text" @click="confirmDialog = false">Bekor qilish</v-btn>
           <v-btn color="error" @click="confirmDelete">O‘chirish</v-btn>
@@ -97,6 +98,7 @@ const icons = reactive({
   mdiTrashCan
 })
 
+// Savatcha mahsulotlari
 const cartItems = ref([
   {
     title: 'Skullcandy Hesh Evo',
@@ -115,24 +117,28 @@ const cartItems = ref([
 ])
 
 const totalCount = computed(() => cartItems.value.reduce((sum, item) => sum + item.quantity, 0))
+
 const totalPrice = computed(() =>
   cartItems.value.reduce((sum, item) => sum + item.price * item.quantity, 0)
 )
 
 const confirmDialog = ref(false)
-const itemToDelete = ref(null)
+const itemToDelete = ref(null) // number yoki 'all'
 
-const openConfirm = index => {
-  itemToDelete.value = index
+const openConfirm = target => {
+  itemToDelete.value = target
   confirmDialog.value = true
 }
 
 const confirmDelete = () => {
-  if (itemToDelete.value !== null) {
+  if (itemToDelete.value === 'all') {
+    cartItems.value = []
+  } else if (typeof itemToDelete.value === 'number') {
     cartItems.value.splice(itemToDelete.value, 1)
-    confirmDialog.value = false
-    itemToDelete.value = null
   }
+
+  confirmDialog.value = false
+  itemToDelete.value = null
 }
 
 const increaseQty = index => {
