@@ -1,7 +1,12 @@
 <template>
   <div class="pa-4 pb-16">
     <div v-if="cartItems.length === 0" class="text-center mt-10">
-      <v-img src="../assets/empty.png" max-width="200" class="mx-auto" contain />
+      <v-img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThRRzbi7woVWthmVckmGUBvO6Nt2IpI9B8TNlxfpCBCIpxZdV6BR2cajIFoHEL8PPsikg&usqp=CAU"
+        max-width="200"
+        class="mx-auto"
+        contain
+      />
       <h3 class="text-h6 font-weight-bold mt-4">Savatda hozircha mahsulot yo'q</h3>
       <p class="text-grey mt-2">
         Bosh sahifadagi mahsulotlardan boshlang yoki kerakli mahsulotni qidiruv orqali toping
