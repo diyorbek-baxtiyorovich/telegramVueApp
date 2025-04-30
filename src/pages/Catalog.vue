@@ -96,7 +96,6 @@
 </template>
 
 <script setup>
-// import
 import { ref, reactive } from 'vue'
 import { mdiMagnify } from '@mdi/js'
 import SearchOverlay from '../components/ui/SearchOverlay.vue'
