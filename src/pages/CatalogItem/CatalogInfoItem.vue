@@ -28,24 +28,23 @@
       </v-chip>
     </div>
 
-    <!-- Saralash va Narx tugmalari -->
     <div class="d-flex justify-start mb-2 gap-2">
-      <v-btn @click="dialog = true" variant="outlined" rounded class="sort-btn"> Saralash </v-btn>
+      <v-btn @click="dialog = true" variant="outlined" rounded class="sort-btn mr-2">
+        Saralash
+      </v-btn>
       <v-btn @click="priceDialog = true" variant="outlined" rounded class="sort-btn"> Narx </v-btn>
     </div>
 
-    <!-- Saralash oynasi -->
     <v-bottom-sheet v-model="dialog" inset>
       <v-card class="px-4 pt-4 pb-6 rounded-xl">
-        <!-- Sarlavha va yopish -->
         <div class="d-flex justify-space-between align-center mb-2">
-          <span class="text-subtitle-1 font-weight-bold">Avval ko'rsatiladi</span>
+          <span class="text-subtitle-1 font-weight-bold">Turini tanlang</span>
           <v-btn icon variant="text" @click="dialog = false">
             <v-icon>{{ icons.mdiClose }}</v-icon>
           </v-btn>
         </div>
         <v-divider class="mb-3" />
-        <!-- Radio guruh (saralash variantlari) -->
+
         <v-radio-group v-model="selectedSort" class="mb-4">
           <v-radio
             v-for="option in sortOptions"
@@ -56,7 +55,7 @@
             class="sort-radio"
           />
         </v-radio-group>
-        <!-- Qo'llash tugmasi -->
+
         <v-btn
           block
           color="#182c88"
@@ -91,7 +90,7 @@
           thumb-label
           color="primary"
         />
-        <!-- Qo'llash tugmasi -->
+
         <v-btn
           block
           color="#182c88"
@@ -105,7 +104,6 @@
       </v-card>
     </v-bottom-sheet>
 
-    <!-- Mahsulotlar ro'yxati -->
     <v-row dense class="mt-4">
       <v-col v-for="product in products" :key="product.id" cols="6" sm="6" md="4">
         <v-card class="product-card" flat>
