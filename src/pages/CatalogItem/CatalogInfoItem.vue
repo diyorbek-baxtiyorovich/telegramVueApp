@@ -110,7 +110,7 @@
           <v-img :src="product.image" height="180" cover class="rounded-img" />
           <v-card-text class="py-2">
             <div class="d-flex align-center mb-1">
-              <v-chip size="x-small" color="red" class="text-white me-2">🔥 Chegirma</v-chip>
+              <v-chip size="x-small" color="red" class="text-white me-2">🔥 Chegirmalar</v-chip>
               <span class="text-red text-subtitle-2 font-weight-bold">
                 {{ product.discountPercent }}
               </span>
