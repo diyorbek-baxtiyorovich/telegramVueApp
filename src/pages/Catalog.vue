@@ -44,7 +44,6 @@
 
           <v-divider class="mb-3" />
 
-          <!-- Radio Guruh -->
           <v-radio-group v-model="selectedSort" class="mb-4">
             <v-radio
               v-for="option in sortOptions"
@@ -56,7 +55,6 @@
             />
           </v-radio-group>
 
-          <!-- Qo'llash tugmasi -->
           <v-btn
             block
             color="#182c88"
@@ -70,7 +68,6 @@
         </v-card>
       </v-bottom-sheet>
 
-      <!-- Mahsulotlar -->
       <v-row dense>
         <v-col v-for="product in products" :key="product.id" cols="6">
           <v-card class="product-card" flat>
@@ -101,7 +98,6 @@ import { mdiMagnify } from '@mdi/js'
 import SearchOverlay from '../components/ui/SearchOverlay.vue'
 import CategoryList from '../components/Caregory/CategoryList.vue'
 
-// data
 const icons = reactive({
   mdiMagnify
 })

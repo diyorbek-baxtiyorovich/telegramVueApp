@@ -241,7 +241,6 @@ function toggleTag(tag) {
   } else {
     selectedTags.value.push(tag)
 
-    // Har 2 ta bosilganda yangi 2 taga ruxsat beriladi
     const neededVisible = Math.ceil(selectedTags.value.length / 2) * 2
     if (neededVisible > visibleCount.value && neededVisible <= allTags.length) {
       visibleCount.value = neededVisible
